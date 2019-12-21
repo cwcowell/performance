@@ -1,25 +1,21 @@
-MAX_CANDIDATE = 10000000
-
+PRIME_COUNT = 5_000
 primes = [2]
 
-
-def prime?(candidate_prime)
-  prime = true
-  max_candidate_factor = Math.sqrt(candidate_prime).ceil # rounds up
-  (2..max_candidate_factor).each do |candidate_factor|
-    if (candidate_prime % candidate_factor).zero?
-      prime = false
-      break
-    end
+def prime?(num)
+  max_factor = Math.sqrt(num).floor
+  (2..max_factor).each do |factor|
+    return false if (num % factor).zero?
   end
-  prime
+  true
 end
 
 start_time = Time.now
-(3..MAX_CANDIDATE).each do |candidate_prime|
-  primes << candidate_prime if prime?(candidate_prime)
+candidate = 3
+while primes.size < PRIME_COUNT do
+  primes << candidate if prime?(candidate)
+  candidate += 2
 end
-elapsed = Time.now - start_time  
+elapsed = Time.now - start_time
 
-puts "found #{primes.size} primes"
+puts "last prime found: #{primes[-1]}"
 puts "elapsed: #{elapsed}"
