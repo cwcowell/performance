@@ -4,7 +4,7 @@ import java.util.List;
 public class Primes {
 
     public static void main(String[] args) {
-        final long PRIME_COUNT = 5_000;
+        final long PRIME_COUNT = 500_000;
         Primes myPrimes = new Primes();
         myPrimes.findPrimes(PRIME_COUNT);
     }

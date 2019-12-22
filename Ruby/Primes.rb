@@ -1,4 +1,4 @@
-PRIME_COUNT = 5_000
+PRIME_COUNT = 500_000
 primes = [2]
 
 def prime?(num)
